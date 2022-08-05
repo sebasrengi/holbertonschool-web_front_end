@@ -1,0 +1,16 @@
+/* variable */
+$TextColor: #3D3D3D;
+$Background: #6D6D6D;
+
+body {
+    color: $TextColor;
+	background-color: $Background;
+}
+
+p {
+    color: $TextColor;
+}
+
+h2 {
+	background-color: $Background;
+}
