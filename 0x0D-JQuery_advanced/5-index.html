@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Task 5</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <script type="application/javascript">
+      const [th, tr, td] = ["<th>", "<tr>", "<td>"]
+      let validator = true;
+
+      function createFamilyTree() {
+        $('body').append("<table>").find('table')
+          .append(tr)
+          .append(tr)
+          .append(tr)
+          .append(tr)
+
+          .find("tr")
+          .eq(0)
+            .append(th).find("th").first().text("Firstname").end().end()
+            .append(th).find("th").last().text("Lastname").end().end()
+          .end()
+
+          .eq(1)
+            .append(td).find("td").first().text("Guillaume").end().end()
+            .append(td).find("td").last().text("Salva").end().end()
+          .end()
+
+          .eq(2)
+            .append(td).find("td").first().text("Paulette").end().end()
+            .append(td).find("td").last().text("Salva").end().end()
+          .end()
+
+          .eq(3)
+            .append(td).find("td").first().text("Antoine").end().end()
+            .append(td).find("td").last().text("Salva").end().end()
+      }
+
+      function addNewMember(firstName, lastName) {
+        let trDetenctor = $("<tr></tr>");
+        let x = $("<td>(x)</td>");
+
+        if (validator) {
+          $("table").html("<tr><th>Firstname</th><th>Lastname</th></tr>")
+          validator = false;
+        }
+
+        x.css({"background-color": "orange", "cursor": "pointer"});
+        x.click(() => {
+          trDetenctor.remove()
+        });
+
+        trDetenctor.append("<td>" + firstName + "</td>");
+        trDetenctor.append("<td>" + lastName + "</td>");
+        trDetenctor.append(x);
+        $("table").append(trDetenctor);
+      }
+
+      createFamilyTree();
+      addNewMember("Guillaume", "Salva");
+      addNewMember("Arielle", "Snizt");
+      addNewMember("Fanette", "Snizt");
+      addNewMember("Gerard", "Snizt");
+      addNewMember("Victor", "Salva");
+    </script>
+  </body>
+</html>
